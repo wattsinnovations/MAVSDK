@@ -5,3 +5,4 @@
 #endif
 
 #include "mavlink/v2.0/common/mavlink.h"
+#include "mavlink/v2.0/watts/mavlink.h"
