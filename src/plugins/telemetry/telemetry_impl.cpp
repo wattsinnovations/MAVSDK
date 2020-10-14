@@ -136,6 +136,14 @@ void TelemetryImpl::enable()
     // FIXME: The calibration check should eventually be better than this.
     //        For now, we just do the same as QGC does.
 
+    // JAKE: hack for ardupilot
+    if (1) {
+        set_health_accelerometer_calibration(1);
+        set_health_gyrometer_calibration(1);
+        set_health_magnetometer_calibration(1);
+        return;
+    }
+
     _parent->get_param_int_async(
         std::string("CAL_GYRO0_ID"),
         std::bind(
