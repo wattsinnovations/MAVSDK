@@ -24,9 +24,15 @@ foreach(CMAKE_ARG ${CMAKE_ARGS})
     message(STATUS "-- ${CMAKE_ARG}")
 endforeach()
 
+# if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+#     message(FATAL_ERROR "You are linux")
+# endif()
+
 ExternalProject_add(
     libressl
     URL https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-${LIBRESSL_VERSION}.tar.gz
     PREFIX libressl
     CMAKE_ARGS "${CMAKE_ARGS}"
+    # INSTALL_COMMAND "install"
+    # PATCH_COMMAND "set CMAKE_SYSTEM_NAME=\"Linux\""
     )

@@ -14,6 +14,7 @@ if(NOT IOS)
 build_target(zlib)
 endif()
 
+build_target(libressl)
 build_target(curl)
 
 if(${BUILD_BACKEND})
