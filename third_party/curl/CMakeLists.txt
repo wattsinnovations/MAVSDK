@@ -8,12 +8,12 @@ list(APPEND CMAKE_ARGS
     "-DCMAKE_INSTALL_PREFIX:PATH=${CMAKE_INSTALL_PREFIX}"
     "-DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}"
     "-DCMAKE_POSITION_INDEPENDENT_CODE=ON"
-    "-DCMAKE_USE_OPENSSL=OFF"
+    # "-DCMAKE_USE_OPENSSL=OFF"
     "-DCMAKE_USE_LIBSSH2=OFF"
     "-DBUILD_SHARED_LIBS=OFF"
     "-DCURL_CA_PATH_SET=OFF"
     "-DCURL_ZLIB=OFF"
-    "-DHTTP_ONLY=ON"
+    # "-DHTTP_ONLY=ON"
     "-DHAVE_POSIX_STRERROR_R=1"
     "-DBUILD_TESTING=OFF"
     )
@@ -37,5 +37,6 @@ ExternalProject_add(
     curl
     URL https://github.com/curl/curl/archive/curl-7_70_0.zip
     PREFIX curl
+    PATCH_COMMAND patch CMakeLists.txt < ${PROJECT_SOURCE_DIR}/curl.patch
     CMAKE_ARGS "${CMAKE_ARGS}"
     )
